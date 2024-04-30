@@ -39,8 +39,8 @@ int main()
         a += 0.1;
     }
 
-    std::cout << (equal(1, 1) ? "TRUE" : "FALSE") << std::endl;                        // TRUE – type deduced
-    std::cout << (equal(static_cast<double>(a), 1.0) ? "TRUE" : "FALSE") << std::endl; // TRUE – type deduced + specialization
-    std::cout << (equal<float>(a, 1) ? "TRUE" : "FALSE") << std::endl;                 // FALSE – type specified + not specialized for float (floating point comparison!)
+    std::cout << std::boolalpha << equal(1, 1) << std::endl;                        // TRUE – type deduced
+    std::cout << std::boolalpha << equal(static_cast<double>(a), 1.0) << std::endl; // TRUE – type deduced + specialization
+    std::cout << std::boolalpha << equal<float>(a, 1) << std::endl;                 // FALSE – type specified + not specialized for float (floating point comparison!)
     return 0;
 }
