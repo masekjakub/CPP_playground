@@ -1,5 +1,5 @@
 all:
-	g++ -g main.cpp -o bin
+	g++ -g -std=c++20 main.cpp -o bin
 
 clean:
 	rm -f bin

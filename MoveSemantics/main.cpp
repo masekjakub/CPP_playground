@@ -39,20 +39,19 @@ C createC()
     C c = C();
     c.i = 2;
     strcpy(c.s, "Hello from createC");
-    return c;
+    return c; // copy elision (move constructor if "-fno-elide-constructors" used)
 }
 
 int main()
 {
-    const C c1 = C();   // costructor
-    C c2 = c1;          // copy constructor
-
-    C c3 = createC();   // costructor + move constructor
+    const C c1;       // constructor
+    C c2 = c1;        // copy constructor
+    C c3 = createC(); // constructor
     cout << "c3:" << endl;
     cout << "-int: " << c3.i << endl;
     cout << "-string: " << c3.s << endl;
 
-    C c4 = move(c2);    // move constructor
+    C c4 = move(c2); // move constructor
     cout << "c4:" << endl;
     cout << "-int: " << c4.i << endl;
     cout << "-string: " << c4.s << endl;
